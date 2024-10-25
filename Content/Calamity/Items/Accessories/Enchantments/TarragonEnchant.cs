@@ -59,7 +59,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         public static void ActivateTarragonBloom(Player player)
         {
             CalDLCAddonPlayer mplayer = player.GetModPlayer<CalDLCAddonPlayer>();
-            
+            int p = Projectile.NewProjectile(player.GetSource_Misc(""), mouse + offset, Vector2.Zero, ModContent.ProjectileType<TarragonSentry>(), 10, 10, 255, 0, 0);
         }
     }
 }
