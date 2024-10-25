@@ -1,0 +1,34 @@
+﻿using Fargowiltas.Common.Configs;
+using Fargowiltas.Common.Configs;
+using FargowiltasCrossmod.Content.Items.Accessories.Enchantments;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace FargowiltasSouls.Core.Systems
+{
+    public class SetBonusManager : ModSystem
+    {
+        public override void Load()
+        {
+            On_Player.KeyDoubleTap += new On_Player.hook_KeyDoubleTap(SetBonusKeyEffects);
+        }
+        public override void Unload()
+        {
+            On_Player.KeyDoubleTap -= new On_Player.hook_KeyDoubleTap(SetBonusKeyEffects);
+        }
+        public void SetBonusKeyEffects(On_Player.orig_KeyDoubleTap orig, Player player, int keyDir)
+        {
+            orig.Invoke(player, keyDir);
+            if (keyDir == (Main.ReversedUpDownArmorSetBonuses ? 1 : 0))
+            {
+                TarragonEffect.ActivateTarragonBloom
+            }
+
+        }
+    }
+}
