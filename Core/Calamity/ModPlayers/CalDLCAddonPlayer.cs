@@ -41,6 +41,7 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
         public int NumJumpsUsed = 0;
         public bool AllowJumpsUsedInc = false;
         public bool RuffianModifiedRotation = false;
+        public int TarragonHeartCD;
         public override bool IsLoadingEnabled(Mod mod)
         {
             //return FargowiltasCrossmod.EnchantLoadingEnabled;
@@ -93,6 +94,14 @@ namespace FargowiltasCrossmod.Core.Calamity.ModPlayers
                     }
                 }
 
+            }
+        }
+        public override void TarragonHeartSpawn(NPC bloom)
+        {
+            if (Player.HasEffect<TarragonEffect>() && TarragonHeartCD <= 0)
+            {
+                TarragonHeartCD = 60;
+                Item.NewItem(bloom.GetSource_DropAsItem(""), bloom.Hitbox, ItemID.Heart);
             }
         }
         public override void ModifyDrawInfo(ref PlayerDrawSet drawInfo)
