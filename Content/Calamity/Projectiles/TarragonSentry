@@ -1,0 +1,44 @@
+﻿using CalamityMod;
+using CalamityMod.CalPlayer;
+using CalamityMod.Items;
+using CalamityMod.Items.Potions;
+using FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments;
+using FargowiltasCrossmod.Core;
+using FargowiltasCrossmod.Core.Calamity.Globals;
+using FargowiltasCrossmod.Core.Common;
+using FargowiltasSouls;
+using FargowiltasSouls.Core.AccessoryEffectSystem;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using rail;
+using ReLogic.Content;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Threading.Tasks;
+using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.Graphics;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace FargowiltasCrossmod/Content/Calamity/Projectiles
+{
+	[ExtendsFromMod(ModCompatibility.Calamity.Name)]
+	[JITWhenModsEnabled(ModCompatibility.Calamity.Name)]
+	public class TarragonSentry : ModProjectile
+	{
+    	public override void SetDefaults()
+    	{
+      		Projectile.friendly = true;
+      		Projectile.hostile = false;
+      		Projectile.height = Projectile.width = 30;
+      		Projectile.tileCollide = false;
+      		Projectile.minion = true;
+    	}
+	}
+}
