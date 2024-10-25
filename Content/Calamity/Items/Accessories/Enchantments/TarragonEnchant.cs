@@ -47,10 +47,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         {
             CalDLCAddonPlayer mplayer = player.GetModPlayer<CalDLCAddonPlayer>();
             player.AddEffect<TarragonEffect>(Item);
-            if (mplayer.TarragonHeartCD > 0)
-            {
-                mplayer.TarragonHeartCD--;
-            }
+            
         }
         public static void AddEffects(Player player, Item item)
         {
@@ -62,12 +59,7 @@ namespace FargowiltasCrossmod.Content.Calamity.Items.Accessories.Enchantments
         public static void ActivateTarragonBloom(Player player)
         {
             CalDLCAddonPlayer mplayer = player.GetModPlayer<CalDLCAddonPlayer>();
-            if (!player.HasBuff(ModContent.BuffType<TarragonCooldown>()))
-            {
-                NPC newBloom = NPC.NewNPCDirect(player.GetSource_Misc(""), x, y, ModContent.NPCType<TarragonBloom>(), 0);
-                player.AddBuff(ModContent.BuffType<TarragonCooldown>(), 600);
-                mplayer.TarragonHeartSpawn(newBloom);
-            }
+            
         }
     }
 }
